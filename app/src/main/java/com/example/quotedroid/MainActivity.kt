@@ -2,6 +2,9 @@ package com.example.quotedroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.quotedroid.adapters.QuoteAdapter
 import com.example.quotedroid.models.Quote
 
 class MainActivity : AppCompatActivity() {
@@ -23,5 +26,9 @@ class MainActivity : AppCompatActivity() {
                 author = "Abraham Lincoln"
             )
         )
+
+        val listQuoteView = findViewById<RecyclerView>(R.id.listQuote)
+        listQuoteView.layoutManager = LinearLayoutManager(this)
+        listQuoteView.adapter = QuoteAdapter(quotes)
     }
 }
